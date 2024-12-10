@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const CTA = () => {
 	return (
 		<section className="py-16 bg-green-600 text-white text-center">
@@ -5,12 +7,12 @@ export const CTA = () => {
 			<p className="mt-4 text-lg">
 				Be part of a greener future. Shop sustainable products today!
 			</p>
-			<a
-				href="#products"
+			<Link
+				to="/customer/home"
 				className="mt-6 inline-block bg-white text-green-600 py-3 px-8 rounded-lg hover:bg-gray-100 transition"
 			>
 				Shop Now
-			</a>
+			</Link>
 		</section>
 	);
 };

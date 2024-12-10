@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaStar, FaRegStar, FaHeart, FaRegHeart } from "react-icons/fa";
 import { useState } from "react";
 
@@ -73,6 +73,17 @@ const CustomerHomePage = () => {
 
 	const [favorites, setFavorites] = useState(products.map(() => false));
 
+	const navigate = useNavigate();
+
+	const handleLogout = () => {
+		// Remove token and role from localStorage
+		localStorage.removeItem("authToken");
+		localStorage.removeItem("userRole");
+
+		// Redirect to the login page
+		navigate("/login");
+	};
+
 	// Fungsi toggle favorit
 	const toggleFavorite = (index: number) => {
 		const updatedFavorites = [...favorites];
@@ -114,6 +125,15 @@ const CustomerHomePage = () => {
 						>
 							Profile
 						</Link>
+
+						<div className="p-4 border-t border-gray-700">
+							<button
+								className="w-full bg-red-600 py-2 rounded hover:bg-red-700"
+								onClick={handleLogout}
+							>
+								Logout
+							</button>
+						</div>
 					</div>
 				</div>
 			</nav>

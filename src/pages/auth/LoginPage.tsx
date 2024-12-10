@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link dari react-router-dom
 
 const LoginPage = () => {
 	const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ const LoginPage = () => {
 		e.preventDefault();
 		console.log("Email:", email, "Password:", password);
 
+		// Dummy login check for admin and customer
 		if (email === "admin@example.com" && password === "password123") {
 			localStorage.setItem("authToken", "dummyToken");
 			localStorage.setItem("userRole", "admin");
@@ -68,6 +70,14 @@ const LoginPage = () => {
 				>
 					Login
 				</button>
+
+				{/* Tautan ke halaman Register */}
+				<p className="text-center mt-4">
+					Don't have an account?{" "}
+					<Link to="/register" className="text-blue-500 hover:underline">
+						Register here
+					</Link>
+				</p>
 			</form>
 		</div>
 	);

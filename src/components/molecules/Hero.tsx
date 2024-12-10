@@ -1,6 +1,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
 	useEffect(() => {
@@ -26,9 +27,12 @@ const HeroSection = () => {
 				<p className="text-lg md:text-xl mt-4">
 					Discover sustainable products for a better future.
 				</p>
-				<button className="mt-6 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-all">
+				<Link
+					to="/customer/home" // Menggunakan Link untuk navigasi
+					className="mt-6 inline-block bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-all"
+				>
 					Explore Products
-				</button>
+				</Link>
 			</div>
 		</section>
 	);

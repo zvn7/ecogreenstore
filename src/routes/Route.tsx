@@ -5,8 +5,9 @@ import ProductManagementPage from "@/pages/admin/ProductPage";
 import UserManagementPage from "@/pages/admin/UserPage";
 import CustomerHomePage from "@/pages/customer/Home";
 import { LandingPage } from "@/pages/LandingPage";
-import LoginPage from "@/pages/LoginPage";
+import LoginPage from "@/pages/auth/LoginPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RegisterPage from "@/pages/auth/RegisterPage";
 
 const AppRoutes = () => {
 	return (
@@ -17,6 +18,9 @@ const AppRoutes = () => {
 
 				{/* Login Page */}
 				<Route path="/login" element={<LoginPage />} />
+
+				{/* Register Page */}
+				<Route path="/register" element={<RegisterPage />} />
 
 				{/* Admin Routes */}
 				<Route
