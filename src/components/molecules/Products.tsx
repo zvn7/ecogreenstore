@@ -2,22 +2,20 @@ import { FaStar, FaRegStar, FaHeart, FaRegHeart } from "react-icons/fa";
 import { useState } from "react";
 
 const ProductShowcase = () => {
-	// Fungsi untuk format Rupiah
-	const formatRupiah = (price : number) => {
+	const formatRupiah = (price: number) => {
 		return new Intl.NumberFormat("id-ID", {
 			style: "currency",
 			currency: "IDR",
 		}).format(price);
 	};
 
-	// Data dummy untuk produk
 	const products = [
 		{
 			id: 1,
 			name: "Eco-Friendly Water Bottle",
 			price: 25000,
 			oldPrice: 30000,
-			image: "/../src/assets/img/water-bottle.jpg",
+			image: "/img/water-bottle.jpg",
 			rating: 4.5,
 		},
 		{
@@ -25,7 +23,7 @@ const ProductShowcase = () => {
 			name: "Reusable Bamboo Utensils",
 			price: 15000,
 			oldPrice: 20000,
-			image: "/../src/assets/img/bamboo-utensils.jpg",
+			image: "/img/bamboo-utensils.jpg",
 			rating: 4.0,
 		},
 		{
@@ -33,7 +31,7 @@ const ProductShowcase = () => {
 			name: "Organic Cotton Tote Bag",
 			price: 20000,
 			oldPrice: 25000,
-			image: "/../src/assets/img/tote-bag.jpg",
+			image: "/img/tote-bag.jpg",
 			rating: 4.8,
 		},
 		{
@@ -41,7 +39,7 @@ const ProductShowcase = () => {
 			name: "Biodegradable Plant Pots",
 			price: 30000,
 			oldPrice: null,
-			image: "/../src/assets/img/plant-pots.jpg",
+			image: "/img/plant-pots.jpg",
 			rating: 4.2,
 		},
 		{
@@ -49,7 +47,7 @@ const ProductShowcase = () => {
 			name: "Recycled Paper Notebooks",
 			price: 18000,
 			oldPrice: 25000,
-			image: "/../src/assets/img/notebooks.jpg",
+			image: "/img/notebooks.jpg",
 			rating: 4.6,
 		},
 		{
@@ -57,7 +55,7 @@ const ProductShowcase = () => {
 			name: "Natural Loofah Sponge",
 			price: 12000,
 			oldPrice: 15000,
-			image: "/../src/assets/img/loofah.jpg",
+			image: "/img/loofah.jpg",
 			rating: 4.3,
 		},
 		{
@@ -65,7 +63,7 @@ const ProductShowcase = () => {
 			name: "Handmade Soap Bars",
 			price: 50000,
 			oldPrice: 60000,
-			image: "/../src/assets/img/soap-bars.jpg",
+			image: "/img/soap-bars.jpg",
 			rating: 4.9,
 		},
 		{
@@ -73,12 +71,11 @@ const ProductShowcase = () => {
 			name: "Reusable Grocery Bags",
 			price: 25000,
 			oldPrice: null,
-			image: "/../src/assets/img/grocery-bags.jpg",
+			image: "/img/grocery-bags.jpg",
 			rating: 4.4,
 		},
 	];
 
-	// Simpan status favorit
 	const [favorites, setFavorites] = useState(products.map(() => false));
 
 	// Fungsi toggle favorit
@@ -94,7 +91,6 @@ const ProductShowcase = () => {
 				Featured Products
 			</h2>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 px-4 md:px-24">
-				{/* Menampilkan produk menggunakan map */}
 				{products.map((product, index) => (
 					<div
 						key={product.id}

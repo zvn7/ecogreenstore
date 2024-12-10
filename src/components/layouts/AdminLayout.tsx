@@ -1,6 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
+	const navigate = useNavigate();
+
+	const handleLogout = () => {
+		// Remove token and role from localStorage
+		localStorage.removeItem("authToken");
+		localStorage.removeItem("userRole");
+
+		// Redirect to the login page
+		navigate("/login");
+	};
+
 	return (
 		<div className="flex h-screen">
 			{/* Sidebar */}
@@ -31,10 +43,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 				<div className="p-4 border-t border-gray-700">
 					<button
 						className="w-full bg-red-600 py-2 rounded hover:bg-red-700"
-						onClick={() => {
-							localStorage.removeItem("authToken");
-							window.location.href = "/login"; // Redirect ke halaman login
-						}}
+						onClick={handleLogout}
 					>
 						Logout
 					</button>

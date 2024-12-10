@@ -1,7 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import heroImg from "../../assets/img/sunrise-bali-jungle.jpg";
 
 const HeroSection = () => {
 	useEffect(() => {
@@ -12,7 +11,7 @@ const HeroSection = () => {
 		<section
 			className="relative flex items-center justify-center h-screen bg-cover bg-center text-center"
 			style={{
-				backgroundImage: `url(${heroImg})`,
+				backgroundImage: `url('/img/sunrise-bali-jungle.jpg')`,
 			}}
 			data-aos="fade-in"
 		>

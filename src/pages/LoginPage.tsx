@@ -9,11 +9,18 @@ const LoginPage = () => {
 
 	const handleLogin = (e: React.FormEvent) => {
 		e.preventDefault();
+		console.log("Email:", email, "Password:", password);
 
-		// Dummy login check
 		if (email === "admin@example.com" && password === "password123") {
-			localStorage.setItem("authToken", "dummyToken"); // Simpan token login
-			navigate("/admin/dashboard"); // Arahkan ke halaman dashboard admin
+			localStorage.setItem("authToken", "dummyToken");
+			localStorage.setItem("userRole", "admin");
+			console.log("Redirecting to Admin Dashboard");
+			navigate("/admin/dashboard");
+		} else if (email === "customer@example.com" && password === "password123") {
+			localStorage.setItem("authToken", "dummyToken");
+			localStorage.setItem("userRole", "customer");
+			console.log("Redirecting to Customer Home");
+			navigate("/customer/home");
 		} else {
 			setError("Invalid email or password");
 		}
@@ -26,7 +33,7 @@ const LoginPage = () => {
 				className="bg-white p-6 rounded-lg shadow-md w-full max-w-md"
 			>
 				<h2 className="text-2xl font-bold text-center text-green-600 mb-6">
-					Admin Login
+					Login
 				</h2>
 
 				{error && <p className="text-red-500 text-center mb-4">{error}</p>}
